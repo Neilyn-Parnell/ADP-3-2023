@@ -3,6 +3,11 @@ package za.ac.cput.domain;
 import java.util.List;
 import java.util.Objects;
 
+/*   Course.java
+     Entity for the Course
+     Author:Rodrigue Ndzana Ngonga Beaubane (219384096)
+     Date: 07 April 2022
+*/
 public class Course {
     private String course_code;
     private String student_Id;
