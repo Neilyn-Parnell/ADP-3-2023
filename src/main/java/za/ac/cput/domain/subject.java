@@ -1,8 +1,8 @@
 package za.ac.cput.domain;
 
 public class subject {
-    private String subject_code;
-    private String subject_name;
+    private final String subject_code;
+    private final String subject_name;
 
     public static class Builder {
         private String subject_code;

@@ -1,9 +1,9 @@
 package za.ac.cput.domain;
 
 public class Parent {
-    private int parent_id;
-    private String parent_name;
-    private String phone_number;
+    private final int parent_id;
+    private final String parent_name;
+    private final String phone_number;
 
     public static class Builder {
         private int parent_id;
@@ -47,9 +47,4 @@ public class Parent {
     public String getPhoneNumber() {
         return phone_number;
     }
-    Parent parent = new Parent.Builder()
-            .parentId(1)
-            .parentName("Enzo")
-            .phoneNumber("0719449412")
-            .build();
 }
