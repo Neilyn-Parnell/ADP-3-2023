@@ -20,10 +20,11 @@ class CourseRepositoryTest {
     private static CourseRepository repository = CourseRepository.getRepository();
     public static List<String> enrolledStudents = new ArrayList<>(List.of("Neilyn", "Rodrigue", "Mxolisi", "Bavuyise", "Anne"));
 
-    private Course course = CourseFactory.createCourse("Ctre45223", "ADP32S", "ADP3", "Mr Kruben Naidoo", "Information Technology", "room 1.3", enr olledStudents);
+    private Course course = CourseFactory.createCourse("Ctre45223", "ADP32S", "ADP3", "Mr Kruben Naidoo", "Information Technology", "room 1.3", enrolledStudents);
 
     @Test
     void a_create() {
+        System.out.println("------------------------- Create Course ----------------------------------------");
         // since I have already created the repository now I am adding to the repository
         Course created = repository.create(course);
         // the assertEquals kinda check if the Course_code() we are getting from the Course repository is the same with the one created
@@ -59,6 +60,7 @@ class CourseRepositoryTest {
 
     @Test
     void d_delete() {
+        System.out.println("------------------------- Delete Course ----------------------------------------");
         boolean success = repository.delete(course.getCourse_code());
         assertTrue(success);
         System.out.println("Delete: " + success);
@@ -66,6 +68,7 @@ class CourseRepositoryTest {
 
     @Test
     void e_getAll() {
+        System.out.println("------------------------- Show all Course ----------------------------------------");
         System.out.println("Show all: ");
         System.out.println(repository.getAll());
     }

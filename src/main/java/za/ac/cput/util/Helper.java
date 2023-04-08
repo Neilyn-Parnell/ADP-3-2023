@@ -4,6 +4,7 @@ package za.ac.cput.util;
      Author:Rodrigue Ndzana Ngonga Beaubane (219384096)
      Date: 07 April 2022
 */
+
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.UUID;
@@ -17,12 +18,13 @@ public class Helper {
         return false;
     }
 
-   //generating user Id
+    //generating user Id
     public static String generatedId() {
         return UUID.randomUUID().toString();
     }
+
     //email validation
-    public static boolean isValidEmail(String email){
+    public static boolean isValidEmail(String email) {
         EmailValidator ev = EmailValidator.getInstance();
         return ev.isValid(email);
     }

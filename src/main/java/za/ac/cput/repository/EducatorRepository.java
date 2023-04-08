@@ -1,4 +1,9 @@
 package za.ac.cput.repository;
+/*   EducatorRepository.java
+     Repository for the Educator
+     Author:Rodrigue Ndzana Ngonga Beaubane (219384096)
+     Date: 07 April 2022
+*/
 
 import za.ac.cput.domain.Course;
 import za.ac.cput.domain.Educator;
@@ -6,21 +11,17 @@ import za.ac.cput.domain.Educator;
 import java.util.HashSet;
 import java.util.Set;
 
-/*   EducatorRepository.java
-     Repository for the Educator
-     Author:Rodrigue Ndzana Ngonga Beaubane (219384096)
-     Date: 07 April 2022
-*/
-public class EducatorRepository implements IEducatorRepository{
+public class EducatorRepository implements IEducatorRepository {
     private static EducatorRepository repository = null; // Initialize the repo to null
     private Set<Educator> educatorDB = null;
-    private EducatorRepository(){
+
+    private EducatorRepository() {
         educatorDB = new HashSet<Educator>(); // storing our data in a form of a set
     }
 
-    public static EducatorRepository getRepository(){
+    public static EducatorRepository getRepository() {
         // checking if the repository is null , if that is a case(which is true) create a repository
-        if(repository == null){
+        if (repository == null) {
             repository = new EducatorRepository();
         }
         return repository;
@@ -32,7 +33,7 @@ public class EducatorRepository implements IEducatorRepository{
         // do some testing
         boolean success = educatorDB.add(educator);
         // if I was successfully able to create object (Employee object). That is why the create method return an employee
-        if(!success){
+        if (!success) {
             return null;
         }
         return educator;
@@ -41,7 +42,7 @@ public class EducatorRepository implements IEducatorRepository{
     @Override
     public Educator read(String educationID) {
         Educator educator = educatorDB.stream()
-                .filter(e ->e.getEducator_Id().equals(educationID))
+                .filter(e -> e.getEducator_Id().equals(educationID))
                 .findAny()
                 .orElse(null);
         return educator;
@@ -49,24 +50,22 @@ public class EducatorRepository implements IEducatorRepository{
 
     @Override
     public Educator update(Educator educator) {
-        // get the oldEmployee and read (the one found in the set) in which the return a string. This go in database and find it
+        // get the oldEducator and read (the one found in the set) in which the return a string. This go in database and find it
         Educator oldEducator = read(educator.getEducator_Id());
         if (oldEducator == null) {
-            // after remove the old employee i need to add the updated value
+            // after remove the old educator i need to add the updated value
             educatorDB.remove(oldEducator);
             educatorDB.add(educator);
-
-            // now the next steps is to jump to the IRepository and update the template
         }
         return educator;
     }
 
     @Override
     public boolean delete(String educationID) {
-       //first find it in the set
+        //first find it in the set
         Educator educatorToDelete = read(educationID);
         if (educatorToDelete == null)
-            // if it equall to null mean it is nothing to delete so return false
+            // if it equal to null mean it is nothing to delete so return false
             return false;
         educatorDB.remove(educatorToDelete);
         return true;

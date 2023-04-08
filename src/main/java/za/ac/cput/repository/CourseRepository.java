@@ -10,29 +10,28 @@ import java.util.Set;
      Author:Rodrigue Ndzana Ngonga Beaubane (219384096)
      Date: 07 April 2022
 */
-public class CourseRepository implements ICourseRepository{
+public class CourseRepository implements ICourseRepository {
     private static CourseRepository repository = null; // Initialize the repo to null
     private Set<Course> courseDB = null;
-    private CourseRepository(){
+
+    private CourseRepository() {
         courseDB = new HashSet<Course>(); // storing our data in a form of a set
     }
 
-    public static CourseRepository getRepository(){
-      // checking if the repository is null , if that is a case(which is true) create a repository
-      if(repository == null){
-          repository = new CourseRepository();
-      }
-      return repository;
+    public static CourseRepository getRepository() {
+        // checking if the repository is null , if that is a case(which is true) create a repository
+        if (repository == null) {
+            repository = new CourseRepository();
+        }
+        return repository;
     }
-
-
 
 
     @Override
     public Course create(Course course) {
         //doing some testing to check if I was successful in adding Course to my Set
         boolean successful = courseDB.add(course);
-        if(!successful){
+        if (!successful) {
             return null; // if no course is added
         }
         return course;
@@ -40,27 +39,21 @@ public class CourseRepository implements ICourseRepository{
 
     @Override
     public Course read(String courseCode) {
-//        Course course = courseDB.stream()
-//                .filter(e ->e.getCourse_code().equals(courseCode))
-//                .findAny()
-//                .orElse(null);
-//        return course;
-        //Linear or sequential search
-        for(Course e :courseDB){
+        for (Course e : courseDB) {
 
-            if(e.getCourse_code().equals(courseCode)){
+            if (e.getCourse_code().equals(courseCode)) {
                 return e;
             }
             return e;
         }
-       return null;
+        return null;
     }
 
     @Override
     public Course update(Course course) {
         // read first the value you want to update
         Course previousCourse = read(course.getCourse_code());
-        if(previousCourse ==null){ // which is true
+        if (previousCourse == null) { // which is true
             courseDB.remove(previousCourse); // remove the previous course
             courseDB.add(course); // add a course with a new course_Code
         }
@@ -73,9 +66,10 @@ public class CourseRepository implements ICourseRepository{
         Course courseToDelete = read(course_code);
         if (courseToDelete == null)
             return false;
-            courseDB.remove(courseToDelete);
-            return true;
+        courseDB.remove(courseToDelete);
+        return true;
     }
+
     @Override
     public Set<Course> getAll() {
         return courseDB;

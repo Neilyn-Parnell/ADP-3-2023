@@ -18,7 +18,7 @@ class EducatorRepositoryTest {
         System.out.println("------------------------- Create Educator ----------------------------------------");
         // since I have already created the repository now I am adding to the repositoryy
         Educator created = repository.create(educator);
-        // the assert equal kinda check if the id we are getting from the employee repository is the same with the one created
+        // the assert equal kinda check if the id we are getting from the Educator repository is the same with the one created
         assertEquals(educator.getEducator_Id(), created.getEducator_Id());
         System.out.println("Create: " + created);
     }
@@ -34,7 +34,6 @@ class EducatorRepositoryTest {
     @Test
     void c_update() {
         System.out.println("------------------------- Update Educator ----------------------------------------");
-        // everything change here since we have to give in values
         Educator updated = new Educator.Builder().copy(educator).setEdu_Name("Mike")
                 .setEdu_Address("53 Victoria")
                 .setEdu_Gender("Male")
