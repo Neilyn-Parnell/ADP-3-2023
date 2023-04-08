@@ -40,12 +40,20 @@ public class CourseRepository implements ICourseRepository{
 
     @Override
     public Course read(String courseCode) {
-        Course course = courseDB.stream()
-                .filter(e ->e.getCourse_code().equals(courseCode))
-                .findAny()
-                .orElse(null);
-        return course;
+//        Course course = courseDB.stream()
+//                .filter(e ->e.getCourse_code().equals(courseCode))
+//                .findAny()
+//                .orElse(null);
+//        return course;
+        //Linear or sequential search
+        for(Course e :courseDB){
 
+            if(e.getCourse_code().equals(courseCode)){
+                return e;
+            }
+            return e;
+        }
+       return null;
     }
 
     @Override

@@ -55,10 +55,10 @@ public class EducatorRepository implements IEducatorRepository{
             // after remove the old employee i need to add the updated value
             educatorDB.remove(oldEducator);
             educatorDB.add(educator);
-            return educator;
+
             // now the next steps is to jump to the IRepository and update the template
         }
-        return null;
+        return educator;
     }
 
     @Override
