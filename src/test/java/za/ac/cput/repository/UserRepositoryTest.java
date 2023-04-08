@@ -40,14 +40,14 @@ class UserRepositoryTest {
     }
 
     @Test
-    void e_delete() {
+    void d_delete() {
         boolean success = repository.delete(user.getUserId());
         assertTrue(success);
         System.out.println("Deleted "+ success);
     }
 
     @Test
-    void d_getAll() {
+    void e_getAll() {
         System.out.println("Show all:");
         System.out.println(repository.getAll());
     }
