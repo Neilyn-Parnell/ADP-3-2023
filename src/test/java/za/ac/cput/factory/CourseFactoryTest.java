@@ -4,6 +4,7 @@ package za.ac.cput.factory;
      Author:Rodrigue Ndzana Ngonga Beaubane (219384096)
      Date: 07 April 2022
 */
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Course;
@@ -24,7 +25,7 @@ class CourseFactoryTest {
         enrolledStudents.add("Mxolisi");
         enrolledStudents.add("Bavuyise");
         enrolledStudents.add("Anne");
-        Course course = CourseFactory.createCourse("219384096", "ADP3", "Application Development Pratice 3", "Mr Kruben Naidoo", "Information Technology", "room 1.3",enrolledStudents);
+        Course course = CourseFactory.createCourse("219384096", "ADP3", "Application Development Pratice 3", "Mr Kruben Naidoo", "Information Technology", "room 1.3", enrolledStudents);
         Assertions.assertNotNull(course);
         System.out.println(course.toString());
     }

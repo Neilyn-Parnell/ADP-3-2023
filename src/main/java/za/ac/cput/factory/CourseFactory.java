@@ -19,7 +19,7 @@ public class CourseFactory {
         String course_code = Helper.generatedId();
 
 
-        Course course = (new Course.Builder())
+        Course course = new Course.Builder()
                 .setCourse_code(course_code)
                 .setStudent_Id(student_Id)
                 .setSubject_Code(subject_Code)

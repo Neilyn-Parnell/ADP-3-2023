@@ -12,7 +12,7 @@ public class Educator {
     private String edu_Address;
     private String edu_Gender;
 
-    private Educator(Builder builder){
+    public Educator(Builder builder){
         this.educator_Id = builder.educator_Id;
         this.edu_Name = builder.edu_Name;
         this.edu_Address = builder.edu_Address;
